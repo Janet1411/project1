@@ -3,106 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Apply for job here">
+    <meta name="author" content="Shivi">
+    <link rel="stylesheet" type="text/css" href="Styles/styles.css">
+</head>
+    <title>Job Application Form</title>
 </head>
 <body>
     <h1> Apply Here for the Job </h1>
-    <h4> (<span style="color: red;">*</span>) indicates a required field</h4>
-        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="POST">
+
+    <!-- please add red asterisk using css, and then remove the inline one -->
+    <h4> (<span style="color: red;">*</span>) indicates a required field</h4><br><br><br>
+       
+    <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="POST" >
+
         <label for="job_ref_num">Job Reference number <span style="color: red;">*</span></label><br>
         <select name="job_ref_num" id="job_ref_num" required>
-          <option value="" disabled selected>Please select here </option>
-          <option value="DA1005">DA1005</option>
-          <option value="BE2455">BE2455</option>
-          <option value="SWE500">SWE500</option>
-          <option value="SWE2450">SWE2450</option>
+          <option value="" disabled selected>Please select.... </option>
+          <option value="00125"> 00125 (Networtk Administrator) </option>
+          <option value="00130"> 00130 (Data Analyst) </option>
+          <option value="00135"> 00135 (Cybersecturity Specialist) </option>
         </select>
-        <br><br>
+        <br>
 
-        <label for="first_name"> First Name: <span style="color: red;">*</span></label><br>
-        <input type="text" id="first_name" name="first_name"  pattern="[A-Za-z]{1,20}"  maxlength="20"  title="Only alphabets allowed (max 20 characters)"  required><br><br>
-    
-        <label for="last_name"> Last Name: <span style="color: red;">*</span></label><br>
-        <input type="text" id="last_name" name="last_name"  pattern="[A-Za-z]{1,20}"  maxlength="20" title="Only alphabets allowed (max 20 characters)" required><br><br>
+        <section>
+          <h3>Personal Details</h3>
 
-        <label for="dob"> Date of Birth:<span style="color: red;">*</span></label><br>
-        <input type="date" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{4}"  placeholder="dd/mm/yyyy" title="Enter a date in the correct format(dd/mm/yyyy)" required><br><br>
-
-        <fieldset>
-          <legend>Gender:<span style="color: red;">*</span></legend>
+          <label for="first_name"> First Name: <span style="color: red;">*</span></label><br>
+          <input type="text" id="first_name" name="first_name"  pattern="[A-Za-z]{1,20}"  maxlength="20"  title="Only alphabets allowed (max 20 characters)"  placeholder="First Name" required><br><br>
       
-          <input type="radio" id="male" name="gender" value="male" required >
-          <label for="male">Male</label><br>
-      
-          <input type="radio" id="female" name="gender" value="female">
-          <label for="female">Female</label><br>
-      
-          <input type="radio" id="other" name="gender" value="other">
-          <label for="other">Other</label>
-        </fieldset><br><br>
+          <label for="last_name"> Last Name: <span style="color: red;">*</span></label><br>
+          <input type="text" id="last_name" name="last_name"  pattern="[A-Za-z]{1,20}"  maxlength="20" title="Only alphabets allowed (max 20 characters)" placeholder="Last Name" required><br><br>
 
-        <label for="street_ad"> Street Address: <span style="color: red;">*</span></label>
-        <input type="text" id="street_ad" name="street_ad" maxlength="40" required><br><br>
+          <label for="dob"> Date of Birth:<span style="color: red;">*</span></label><br>
+          <input type="text" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{4}"  title="Enter a date in the correct format(dd/mm/yyyy)" placeholder= "dd-mm-yyyy" required><br><br>
 
-        <label for="suburb"> Suburb: <span style="color: red;">*</span></label>
-        <input type="text" id="suburb" name="suburb" maxlength="40" required><br><br>
-
-        <label for="state"> State: <span style="color: red;">*</span></label>
-        <select id="state" name="state" required>
-          <option value="" disabled selected>Select your state </option>
-          <option value="vic">VIC</option>
-          <option value="nsw">NSW</option>
-          <option value="qld">QLD</option>
-          <option value="nt">NT</option>
-          <option value="wa">WA</option>
-          <option value="sa">SA</option>
-          <option value="tas">TAS</option>
-          <option value="act">ACT</option>       
-        </select><br><br>
-
-        <label for="postcode"> Postcode: <span style="color: red;">*</span></label>
-        <input type="text" id="postcode" name="postcode" pattern="\d+" maxlength="4" placeholder="E.g.: 2600 (Canberra)" title= "Only 4 digits allowed" required><br><br>
+          <fieldset>
+            <legend>Gender:<span style="color: red;">*</span></legend>
         
-        <label for="email"> Email: <span style="color: red;">*</span></label>
-        <input type="email" id="email" name="email"  placeholder="example@domain.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
-
-        <label for="phone_no"> Phone Number: <span style="color: red;">*</span></label>
-        <input type="tel" id="phone_no" name="phone_no"  pattern="[0-9]{8,12}" title="Only digits and spaces allowed (8 to 12 characters)" required><br><br>
-
-      <fieldset>
-        <legend> Required technical list <span style="color: red;">*</span></legend>
-        <input type="checkbox" id="tableau" name="skill" value="Tableau / Power BI" checked required>
-        <label for="tableau"> Tableau / Power BI  </label><br>
-
-        <input type="checkbox" id="data_studio" name="skill" value="Google Data Studio">
-        <label for="data_studio"> Google Data Studio </label><br>
-
-        <input type="checkbox" id="python" name="skill" value="Python (pandas, numpy, matplotlib, seaborn, scikit-learn)">
-        <label for ="python"> Python (pandas, numpy, matplotlib, seaborn, scikit-learn) </label><br>
+            <input type="radio" id="male" name="gender" value="male" required >
+            <label for="male">Male</label><br>
         
-        <input type="checkbox" id="R" name="Skill" value="R">
-        <label for="R"> R (for statistical analysis and visualization) </label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
         
-        <input  type="checkbox" id="sql" name="skill" value="SQL">
-        <label for="sql"> SQL  (for querying databases) </label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+          </fieldset><br>
+        </section>
+
+
+        <section> 
+          <h3>Address </h3>
+
+          <label for="street_ad"> Street Address: <span style="color: red;">*</span></label>
+          <input type="text" id="street_ad" name="street_ad" maxlength="40" placeholder="e.g: , street no., street name" required><br><br>
+
+          <label for="suburb"> Suburb: <span style="color: red;">*</span></label>
+          <input type="text" id="suburb" name="suburb" maxlength="40" placeholder="e.g: Croydon" required><br><br>
+
+          <label for="state"> State: <span style="color: red;">*</span></label>
+          <select id="state" name="state"  required>
+            <option value="" disabled selected>Select your state </option>
+            <option value="vic">VIC</option>
+            <option value="nsw">NSW</option>
+            <option value="qld">QLD</option>
+            <option value="nt">NT</option>
+            <option value="wa">WA</option>
+            <option value="sa">SA</option>
+            <option value="tas">TAS</option>
+            <option value="act">ACT</option>       
+          </select><br><br>
+
+          <label for="postcode"> Postcode: <span style="color: red;">*</span></label>
+          <input type="text" id="postcode" name="postcode" pattern="\d+" maxlength="4" placeholder="e.g.: 2600 (Canberra)" title= "Only 4 digits allowed" required><br><br>
+          <!-- can also use css for red asterisk  -->
+          <!-- add id to all the labels for the red asterisk -->
+        </section>
+
+        <section>
+          <h3>Contact Details</h3>
+
+          <label for="email"> Email: <span style="color: red;">*</span></label>
+          <input type="email" id="email" name="email"  placeholder="example@domain.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
+
+          <label for="phone_no"> Phone Number: <span style="color: red;">*</span></label>
+          <input type="tel" id="phone_no" name="phone_no"  pattern="[0-9]{8,12}" title="Only digits and spaces allowed (8 to 12 characters)"  placeholder="+61 XXXX XXX XXX" required><br><br>
+        </section>
+
+        <section>
+            <h3> Skills & Qualifications</h3>
+          <fieldset>
+            <legend> Required technical skill list <span style="color: red;">*</span></legend>
+
+            <!-- use flexbox for checkboxes -->
+
+            <input type="checkbox" id="tableau" name="skill" value="Tableau / Power BI" checked required>
+            <label for="tableau"> Tableau / Power BI  </label><br>
+
+            <input type="checkbox" id="data_studio" name="skill" value="Google Data Studio">
+            <label for="data_studio"> Google Data Studio </label><br>
+
+            <input type="checkbox" id="python" name="skill" value="Python (pandas, numpy, matplotlib, seaborn, scikit-learn)">
+            <label for ="python"> Python (pandas, numpy, matplotlib, seaborn, scikit-learn) </label><br>
+            
+            <input type="checkbox" id="R" name="Skill" value="R">
+            <label for="R"> R (for statistical analysis and visualization) </label><br>
+            
+            <input  type="checkbox" id="sql" name="skill" value="SQL">
+            <label for="sql"> SQL  (for querying databases) </label><br>
+            
+            <input type="checkbox" id="rel_dbms" name="skill" value="Relational Databases">
+            <label for="rel_dbms"> Relational Databases (MySQL, PostgreSQL, SQL Server) </label><br>
+          </fieldset><br><br>
+
+          <label for="other_skills"> Other Skills </label><br>
+          <textarea id="other_skills" name="other_skills" rows="5" cols="50"></textarea><br><br>
+
+          <label for="resume">Upload Resume:<span style="color: red;">*</span></label><br>
+
+          <!-- remove span; css for grey & italics for below text  -->
+          <span style="color: grey; font-style: italic;">
+          Please upload only .pdf, .doc, .docx only
+          </span><br><br>
+          
+          <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" placeholder="." required>
+        </section>
+        <br><br><br>
         
-        <input type="checkbox" id="rel_dbms" name="skill" value="Relational Databases">
-        <label for="rel_dbms"> Relational Databases (MySQL, PostgreSQL, SQL Server) </label><br>
-      </fieldset><br><br>
-
-        <label for="other_skills"> Other Skills </label><br>
-        <textarea id="other_skills" name="other_skills" rows="5" cols="50"></textarea><br><br>
-
-        <label for="resume">Upload Resume:<span style="color: red;">*</span></label><br>
-        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx"><br><br>
-
         <label>
-          <input type="checkbox" name="terms" checked required>
-          I agree to the terms and conditions
-        </label><br><br>
+          <input type="checkbox" name="terms" checked required><span style="color: red;">*</span>
+          I agree to the (company)'s terms and conditions.<br>
 
-        <button type="submit">Apply</button>
-        <button type="reset">Reset </button>
+          <!-- remove span; change text to small,italics, and grey  -->
+          <span style="font-size: small; color: grey; font-style: italic;">
+            I confirm that I have read, understood and agree to company_name's <a href="" > policies, terms and conditions </a> which sets out the ways in which company_name may collect, use, disclose and hold my personal information.
+          </span>
+
+          <!-- add css for the link; like link colour, visited link,hover and active -->
+          <!-- company's name, add another page to link for terms and condition  -->
+        </label><br><br>
+      
+
+        <button type="submit"> Apply </button>
+        <button type="reset"> Reset form </button>
+        <!-- style the buttons;hover,etc -->
+
       </form>
     
     </body>
@@ -111,3 +157,24 @@
     
 </body>
 </html>!
+
+
+<!-- include this code in css invalid wrong entry:
+input {
+    border: 2px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    outline: none;
+  }
+
+  /* Show red border ONLY when field is invalid AND user has typed something */
+  input:invalid:focus,
+  input:invalid:not(:placeholder-shown) {
+    border: 2px solid red;
+  }
+
+  input:valid {
+    border: 2px solid green;
+  }
+
+ 
