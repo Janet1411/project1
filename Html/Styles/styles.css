@@ -1,0 +1,25 @@
+/* input:invalid {
+    border: 2px solid red;
+  }
+
+  input:valid {
+    border: 2px solid green;
+  } */
+
+  input {
+    border: 2px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    outline: none;
+  }
+/* 
+  Show red border ONLY when field is invalid AND user has typed something */
+  input:invalid:focus,
+  input:invalid:not(:placeholder-shown) {
+    border: 2px solid red;
+  }
+
+  input:valid {
+    border: 2px solid green;
+  }
+
