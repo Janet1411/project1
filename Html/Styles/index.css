@@ -1,8 +1,15 @@
+/* add red asterisk using css, and then remove the inline one
+make the images smaller and make it two colamns
+*/
+
+
 :root {
     --primary-color: #6495ed;
     --secondary-color: #DCDCDC;
     --accent-color: #F5F5DC;
     --background-color: #f8f9fa;
+    --error-color: red;
+    --success-color: green;
     --text-color: #333;
     --font-family: 'Segoe UI', 'Arial', sans-serif;
     --transition-speed: 0.3s;
@@ -409,36 +416,4 @@ footer {
         margin-right: 0;
         margin-bottom: 20px;
     }
-}
-
-
-  /* for the links in form */
-  a {
-    color: blue; 
-  }
-
-  a:visited {
-    color: purple; 
-  }
-
-  a:hover {
-    color: red; 
-  }
-
-  a:active {
-    color: green; 
-  }
-
-  /* form page mrgin css */
-  html, body {
-    margin: 0;       /* Reset default margin */
-    padding: 0;
-  }
-
- 
-  /* for grey text  */
-.gray{
-  color: grey;
-  font-style: italic;
-  font-size: small;
 }
