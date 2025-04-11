@@ -410,3 +410,35 @@ footer {
         margin-bottom: 20px;
     }
 }
+
+
+  /* for the links in form */
+  a {
+    color: blue; 
+  }
+
+  a:visited {
+    color: purple; 
+  }
+
+  a:hover {
+    color: red; 
+  }
+
+  a:active {
+    color: green; 
+  }
+
+  /* form page mrgin css */
+  html, body {
+    margin: 0;       /* Reset default margin */
+    padding: 0;
+  }
+
+ 
+  /* for grey text  */
+.gray{
+  color: grey;
+  font-style: italic;
+  font-size: small;
+}
