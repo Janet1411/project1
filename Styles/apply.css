@@ -42,26 +42,34 @@ header h1 {
   margin: 10px 0 20px;
 }
 
-/* Navigation */
-nav {
-  display: flex;
-  justify-content: center;
-  background-color: var(--secondary-color);
-  padding: 12px 0;
-  border-radius: 5px;
-  margin-top: 15px;
-  flex-wrap: wrap;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: black;
-}
-
 header nav {
+  position: relative;
   background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  border-radius: 5px; /* Rounded corners */
+  z-index: 1;
+}
+
+/* Gradient border effect */
+header nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* border thickness */
+  border-radius: inherit;
+  background: linear-gradient(to right, Black, DimGrey, SlateGrey, WhiteSmoke);
+  z-index: -1;
+  
+  /* Masking trick */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
 }
 
 header nav a {
