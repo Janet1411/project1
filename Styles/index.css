@@ -10,7 +10,7 @@ make the images smaller and make it two colamns
     --background-color: #f8f9fa;
     --error-color: red;
     --success-color: green;
-    --text-color: #333;
+    --text-color: #000000;
     --font-family: 'Segoe UI', 'Arial', sans-serif;
     --transition-speed: 0.3s;
 }
@@ -38,7 +38,6 @@ header {
 
 header img {
     max-width: 120px;
-    display: block;
     margin: 0 auto 10px;
     animation: fadeInDown var(--transition-speed) ease-out;
 }
@@ -61,7 +60,7 @@ nav {
 }
 
 nav a {
-    color: black;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     padding: 10px 20px;
     margin: 5px 10px;
@@ -156,11 +155,10 @@ a.button:hover {
 
 /* Images */
 img {
-    max-width: 100%;
+    max-width: 25%;
     height: auto;
     margin: 20px 0;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
@@ -215,201 +213,6 @@ footer a:hover {
         flex-direction: column;
         padding: 20px;
         margin-top: 30px;
-    }
-
-    aside {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-}
-:root {
-    --primary-color: #6495ed;
-    --secondary-color: #DCDCDC;
-    --accent-color: #F5F5DC;
-    --background-color: #f8f9fa;
-    --text-color: #333;
-    --font-family: 'Segoe UI', 'Arial', sans-serif;
-    --transition-speed: 0.3s;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-family);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-}
-
-/* Header */
-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 30px 20px;
-    text-align: center;
-}
-
-header img {
-    max-width: 100px;
-    display: block;
-    margin: 0 auto 10px;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin: 10px 0 20px;
-}
-
-header nav {
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-header nav a {
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px;
-    margin: 5px;
-    font-size: 1rem;
-    border-radius: 5px;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-}
-
-header nav a:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: scale(1.05);
-}
-
-/* Main Content */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-}
-
-/* Sidebar Navigation */
-aside {
-    flex: 1;
-    min-width: 200px;
-    margin-right: 30px;
-    background: #e9ecef;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-aside h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-aside ul {
-    list-style: none;
-    padding: 0;
-}
-
-aside ul li {
-    margin: 10px 0;
-}
-
-aside ul li a {
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: color var(--transition-speed);
-}
-
-aside ul li a:hover {
-    color: var(--accent-color);
-}
-
-/* Job Sections */
-section.position {
-    flex: 3;
-    margin-bottom: 40px;
-}
-
-section h2.position {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-.basicInfo p {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    margin: 10px 0;
-}
-
-.basicInfo img {
-    width: 20px;
-    margin-right: 10px;
-}
-
-.furtherInfo {
-    margin-top: 20px;
-}
-
-.furtherInfo h3 {
-    color: var(--primary-color);
-    margin-top: 25px;
-}
-
-.furtherInfo ul,
-.furtherInfo ol {
-    margin-top: 10px;
-    padding-left: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-table, th, td {
-    border: 1px solid var(--secondary-color);
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* Footer */
-footer {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: 40px;
-    border-radius: 10px 10px 0 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
     }
 
     aside {
