@@ -1,103 +1,9 @@
-:root {
-    --primary-color: DimGrey;
-    --secondary-color: LightGrey;
-    --accent-color: Silver;
-    --background-color: #f8f9fa;
-    --error-color: red;
-    --success-color: green;
-    --text-color: #000000;
-    --font-family: 'Segoe UI', 'Arial', sans-serif;
-    --transition-speed: 0.6s;
-}
-  
-html {
-    scroll-behavior: smooth;
-}
-  
-body {
-    font-family: var(--font-family);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-}
-  
-/* Header */
-header {
-    background-image: url('../Html/images/background.png');
-    color: white;
-    padding: 30px 20px;
-    text-align: center;
-    position: relative;
-}
-  
-header img {
-    max-width: 120px;
-    margin: 0 auto 10px;
-    animation: fadeInDown var(--transition-speed) ease-out;
-}
-  
-header h1 {
-    font-size: 2.5rem;
-    margin: 10px 0 20px;
-}
-  
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: var(--secondary-color);
-    padding: 12px 0;
-    border-radius: 5px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: black;
-}
-  
-header nav {
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-  
-header nav a {
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px;
-    margin: 5px;
-    font-size: 1rem;
-    border-radius: 5px;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-}
-  
-header nav a:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: scale(1.05);
-}  
-
-/* Main Content */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 30px;
-    background: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-    animation: fadeInUp 0.6s ease-out;
-}
-
 aside {
     flex: 1;
     min-width: 220px;
     background: #e9ecef;
     padding: 25px;
+    border: 2px solid var(--border-color);
     border-radius: 10px;
     margin-right: 20px;
 }
@@ -118,26 +24,42 @@ aside ul li a {
 }
 
 aside ul li a:hover {
-    color: var(--accent-color);
-}
-
-/* Section Headings & Content */
-main h2 {
-    width: 100%;
     color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 8px;
-    margin-top: 30px;
 }
 
-main p, main ul, main ol {
-    margin-top: 15px;
-    font-size: 1rem;
+/* Generic section layout with image and text side by side */
+section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
-main ul, main ol {
-    padding-left: 20px;
+/* Text content inside sections */
+section p, section ul, section ol {
+    flex: 1 1 55%;
+    max-width: 55%;
 }
+
+section p img {
+    margin-right: 55px;
+}
+/* Section images */
+section img {
+    flex: 1 1 40%;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 1px;
+}
+
+/* Optional: style for multiple images in one section (e.g. employees) */
+section img + p, section img + ul {
+    margin-top: 20px;
+} 
 
 /* Buttons */
 button,
@@ -156,72 +78,4 @@ button:hover,
 a.button:hover {
     background-color: var(--accent-color);
     transform: scale(1.05);
-}
-
-/* Images */
-img {
-    max-width: 25%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-}
-
-/* Footer */
-footer {
-    background-color: var(--primary-color);
-    text-align: center;
-    color: white;
-    padding: 30px 20px;
-    margin-top: 40px;
-    border-radius: 10px 10px 0 0;
-}
-
-footer a {
-    color: #fffacd;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-
-    main {
-        flex-direction: column;
-        padding: 20px;
-        margin-top: 30px;
-    }
-
-    aside {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
 }
