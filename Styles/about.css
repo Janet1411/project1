@@ -1,3 +1,7 @@
+
+/* add css for the profile_pic */
+/* can you do something about the 'about us' text to appear in two lines */
+
 :root {
     --primary-color: DimGrey;
     --secondary-color: LightGrey;
@@ -229,3 +233,141 @@ footer a:hover {
         margin-bottom: 20px;
     }
 }
+/* -------------------------------------------------((shivi*/
+ /* for the cards  */
+ body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+   
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    border-radius: 20px;
+    align-items: center;
+  }
+  
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+  }
+  
+  .box {
+    padding: 0 16px;
+    border-radius:20px ;
+    
+  }
+  
+  .box::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  /* for background img of about us  */
+.bg_img {
+    position: relative;
+    background-image: url(../Html/images/display_img.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-attachment: fixed;
+  }
+  
+  .bg_img::before {  /*for the black overlap*/
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 0;
+  }
+  
+  .bg_img h1{  /*for the text to appear above*/
+    position: relative;
+    z-index: 1;
+  }
+  /* for the learn morn about us  */
+  #description{
+   ul{
+    list-style: none;
+    padding: 0;
+  } 
+  li {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.3em;
+    color: #333;
+  }
+  .year {
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 8px;
+  }
+  .hometown {
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .info {
+    color:black;
+    font-style: italic;
+  }
+  .fact {
+    color: gray;
+    margin-top: 10px;
+  }
+ }
