@@ -274,9 +274,9 @@ footer a:hover {
 }
 /* -------------------------------------------------((shivi*/
  /* for the cards  */
+ /* taken a bit of code snippets from the w3schools website  */
    
-
-html {
+html{
   box-sizing: border-box;
 }
 
@@ -427,7 +427,6 @@ html {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
-  font-family: sans-serif;
 }
 
 dt {
