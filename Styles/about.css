@@ -274,7 +274,7 @@ footer a:hover {
 }
 /* -------------------------------------------------((shivi*/
  /* for the cards  */
- /* taken a bit of code snippets from the w3schools website  */
+ /* taken a bit of code snippets from the w3schools website(http://w3schools.com)  */
    
 html{
   box-sizing: border-box;
@@ -308,7 +308,7 @@ html{
 }
 
 .job {
-  color: grey;
+  color: #424242;
 }
 
 .button {
@@ -343,7 +343,7 @@ html{
     background-size: cover;
     background-position: center;
     height: 320px;
-    color: white;
+    color:#6B6B6B;
     display: flex;flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -364,6 +364,7 @@ html{
     z-index: 1;
   }
   /* for the learn morn about us  */
+
   #description{
    ul{
     list-style: none;
@@ -383,7 +384,7 @@ html{
   }
   .year {
     font-weight: bold;
-    color: #777;
+    color: #303030;
     margin-bottom: 8px;
   }
   .hometown {
@@ -395,7 +396,7 @@ html{
     font-style: italic;
   }
   .fact {
-    color: gray;
+    color:#141414;
     margin-top: 10px;
   }
  }
@@ -412,13 +413,10 @@ html{
   box-shadow:2px 2px 8px rgba(0,0,0,0.3);
   margin: 60px;
  }
- #gray{
-  color: #fff;
-  font-style: italic;
- }
  #style{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size:50px
  }
+
  
  
