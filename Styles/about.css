@@ -321,7 +321,8 @@ html{
   text-align: center;
   cursor: pointer;
   width: 100%;
-  border-radius: 10cap;
+  border-radius: 10em;
+  text-decoration: none;  /*for no underline below link */
 }
 
 .button:hover {
@@ -363,7 +364,7 @@ html{
     position: relative;
     z-index: 1;
   }
-  /* for the learn morn about us  */
+  /* for the learn morn about us; taken code snippets from chatgpt using prompt; same as used for the content generation   */
 
   #description{
    ul{
