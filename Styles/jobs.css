@@ -73,6 +73,7 @@ section h2.position {
 .furtherInfo ol {
     margin-top: 10px;
     padding-left: 20px;
+    line-height: 1.6;
 }
 
 /* Table Styling */
@@ -98,4 +99,9 @@ th, td {
 th {
     background-color: var(--primary-color);
     color: white;
+}
+
+/*paragraph styling*/
+.description {
+    line-height: 1.5;
 }

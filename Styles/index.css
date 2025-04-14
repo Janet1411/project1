@@ -39,6 +39,7 @@ section {
 section p, section ul, section ol {
     flex: 1 1 55%;
     max-width: 55%;
+    line-height: 1.6;
 }
 
 section p img {
