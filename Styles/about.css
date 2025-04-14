@@ -67,41 +67,40 @@ p {
     margin: 15px 0;
     line-height: 1.6;
 }
+ 
+nav {
+  position: sticky; /* 🔥 Makes it stick */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1; /* Keeps it above all content */
   
-header nav {
-    position: relative;
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 10px 0;
-    margin-top: 15px;
-    border-radius: 5px; /* Rounded corners */
-    border: 2px solid var(--border-color);
-    background: linear-gradient(to right, dimgray, whitesmoke);
-    z-index: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  margin-top: 0; /* Remove top margin so it's flush */
+  
+  background: linear-gradient(to right, dimgray, whitesmoke);
+  border: 2px solid var(--border-color);
+  border-radius: 100px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}  
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
-header nav > * {
-    border-radius: 10px; /* slightly smaller to fit inside border */
-    padding: 12px 24px;
-    display: block;
-}
-  
-header nav a {
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px;
-    margin: 5px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-}
-  
-header nav a:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: scale(1.05);
+nav a:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
 }  
 
 /* Main Content */
