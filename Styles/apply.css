@@ -106,3 +106,8 @@ button:hover {
   color: black;
   transform: scale(1.05);
 }
+
+.flex-Check {
+  display: flex;
+  justify-content: center;
+}

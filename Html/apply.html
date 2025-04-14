@@ -111,24 +111,35 @@
               <legend class= "required"> Required technical skill list </legend>
 
               <!-- use flexbox for checkboxes -->
+              <div class="flex-Check">
+                <input type="checkbox" id="tableau" name="skill" value="Tableau / Power BI" checked required>
+                <label class="flex-item" for="tableau"> Tableau / Power BI  </label><br>
+              </div>
 
-              <input type="checkbox" id="tableau" name="skill" value="Tableau / Power BI" checked required>
-              <label class="flex-item" for="tableau"> Tableau / Power BI  </label><br>
+              <div class="flex-Check">
+                <input type="checkbox" id="data_studio" name="skill" value="Google Data Studio">
+                <label  class="flex-item" for="data_studio"> Google Data Studio </label><br>
+              </div>
 
-              <input type="checkbox" id="data_studio" name="skill" value="Google Data Studio">
-              <label  class="flex-item" for="data_studio"> Google Data Studio </label><br>
+              <div class="flex-Check">
+                <input type="checkbox" id="python" name="skill" value="Python (pandas, numpy, matplotlib, seaborn, scikit-learn)">
+                <label  class="flex-item" for ="python"> Python (pandas, numpy, matplotlib, seaborn, scikit-learn) </label><br>
+              </div>
 
-              <input type="checkbox" id="python" name="skill" value="Python (pandas, numpy, matplotlib, seaborn, scikit-learn)">
-              <label  class="flex-item" for ="python"> Python (pandas, numpy, matplotlib, seaborn, scikit-learn) </label><br>
-              
-              <input type="checkbox" id="R" name="Skill" value="R">
-              <label class="flex-item" for="R"> R (for statistical analysis and visualization) </label><br>
-              
-              <input  type="checkbox" id="sql" name="skill" value="SQL">
-              <label class="flex-item" for="sql"> SQL  (for querying databases) </label><br>
-              
-              <input type="checkbox" id="rel_dbms" name="skill" value="Relational Databases">
-              <label class="flex-item" for="rel_dbms"> Relational Databases (MySQL, PostgreSQL, SQL Server) </label><br>
+              <div class="flex-Check">
+                <input type="checkbox" id="R" name="Skill" value="R">
+                <label class="flex-item" for="R"> R (for statistical analysis and visualization) </label><br>
+              </div>
+
+              <div class="flex-Check">
+                <input  type="checkbox" id="sql" name="skill" value="SQL">
+                <label class="flex-item" for="sql"> SQL  (for querying databases) </label><br>
+              </div>
+
+              <div class="flex-Check">
+                <input type="checkbox" id="rel_dbms" name="skill" value="Relational Databases">
+                <label class="flex-item" for="rel_dbms"> Relational Databases (MySQL, PostgreSQL, SQL Server) </label><br>
+              </div>
             </fieldset><br><br>
 
             <label for="other_skills"> Other Skills </label><br>
