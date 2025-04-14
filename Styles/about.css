@@ -83,7 +83,7 @@ nav {
   
   background: linear-gradient(to right, dimgray, whitesmoke);
   border: 2px solid var(--border-color);
-  border-radius: 100px;
+  border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }  
 
@@ -334,7 +334,7 @@ html{
   border-radius: 10em;
   text-decoration: none;  /*for no underline below link */
 }
-
+  
 .button:hover {
   background-color: #555;
 }

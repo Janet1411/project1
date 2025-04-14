@@ -106,9 +106,36 @@ button:hover {
   color: black;
   transform: scale(1.05);
 }
+ 
+  /* for the flexbox  */
+  
+    .flexbox {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      
+    }
 
-/*check box*/
-.flex-Check {
-  display: flex;
-  justify-content: center; /*make the checkbox centered*/
-}
+    .box {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      width: 200px;
+      height:100px;
+      box-shadow: 0 8px 20px lightslategray;
+      display: flex;
+      font-size: 18px;
+      color: #333;
+      transition: transform 0.3s, box-shadow 0.2s;
+      column-gap: 5em;
+
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+ 
