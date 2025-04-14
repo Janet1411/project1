@@ -113,23 +113,22 @@ button:hover {
       display: flex;
       gap: 10px;
       justify-content: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       flex-direction: column;
-      
+  
     }
 
     .box {
       background-color: #fff;
       border-radius: 15px;
       padding: 30px;
-      width: 200px;
-      height:100px;
+      width: 500px;
+      height:30px;
       box-shadow: 0 8px 20px lightslategray;
       display: flex;
       font-size: 18px;
       color: #333;
       transition: transform 0.3s, box-shadow 0.2s;
-      column-gap: 5em;
 
     }
 
