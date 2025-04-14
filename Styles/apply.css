@@ -107,7 +107,8 @@ button:hover {
   transform: scale(1.05);
 }
 
+/*check box*/
 .flex-Check {
   display: flex;
-  justify-content: center;
+  justify-content: center; /*make the checkbox centered*/
 }
