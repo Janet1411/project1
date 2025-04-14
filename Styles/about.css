@@ -1,11 +1,9 @@
-
-
 :root {
     --primary-color: DimGrey;
     --secondary-color: LightGrey;
     --accent-color: Silver;
     --background-color: WhiteSmoke;
-    --border-color: SlateGrey;
+    --border-color: DarkGrey;
     --error-color: Red;
     --success-color: Green;
     --text-color: Black;
@@ -28,7 +26,7 @@ body {
 /* Header */
 header {
     background-image: url('../Html/images/background.png');
-    color: white;
+    color: var(--font-family);
     padding: 30px 20px;
     text-align: center;
     position: relative;
@@ -329,15 +327,7 @@ html{
   background-color: #555;
 }
 
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
-
-
-  /* for background img of about us  */
+/* for background img of about us  */
 .bg_img {
     position: relative;
     background-image: url(../Html/images/display_img.jpg);
@@ -364,8 +354,8 @@ html{
     position: relative;
     z-index: 1;
   }
-  /* for the learn morn about us; taken code snippets from chatgpt using prompt; same as used for the content generation   */
 
+  /* for the learn morn about us; taken code snippets from chatgpt using prompt; same as used for the content generation   */
   #description{
    ul{
     list-style: none;
@@ -418,6 +408,3 @@ html{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size:50px
  }
-
- 
- 

@@ -19,12 +19,12 @@ aside ul li {
 
 aside ul li a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--text-color);
     transition: color var(--transition-speed);
 }
 
 aside ul li a:hover {
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
 /* Generic section layout with image and text side by side */

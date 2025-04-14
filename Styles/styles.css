@@ -26,7 +26,7 @@ body {
 /* Header */
 header {
     background-image: url('../Html/images/background.png');
-    color: white;
+    color: var(--font-family);
     padding: 30px 20px;
     text-align: center;
     position: relative;
@@ -113,6 +113,11 @@ main h2 {
     margin-top: 30px;
 }
 
+/* Section Headings & Content */
+nav h2 {
+    margin-left: 485px;
+}
+
 main p, main ul, main ol {
     margin-top: 15px;
     font-size: 1rem;
@@ -162,3 +167,85 @@ footer a:hover {
         transform: translateY(0);
     }
 }
+
+/* ========== 📱 Responsive Layout ========== */
+@media (max-width: 1024px) {
+    main {
+      flex-direction: column;
+      padding: 20px;
+      margin: 30px auto;
+    }
+  
+    nav h2 {
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    aside nav {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    aside nav a {
+      display: block;
+      margin: 10px 0;
+      text-align: center;
+    }
+  
+    header h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    header img {
+      max-width: 80px;
+    }
+  
+    header h1 {
+      font-size: 1.8rem;
+    }
+  
+    header nav a {
+      font-size: 1rem;
+      padding: 8px 12px;
+    }
+  
+    main h2 {
+      font-size: 1.4rem;
+    }
+  
+    main p, main ul, main ol {
+      font-size: 0.95rem;
+    }
+  
+    nav h2 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header nav {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    header nav a {
+      font-size: 0.9rem;
+    }
+  
+    footer {
+      padding: 20px 10px;
+    }
+  
+    footer p {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      width: 100%;
+      font-size: 1rem;
+      padding: 10px;
+    }
+  }
+  
