@@ -8,19 +8,9 @@
 </head>
 
 <body>
-  <header>
-    <img src="images/Solvex_Logo.png" alt="Solvex_Logo" loading="lazy">
-    
-    <h1>Solvex</h1>
-  </header>
+  <?php include_once("header.inc"); ?>
 
-  <nav>
-        <a href="index.html">Home</a>
-        <a href="jobs.html">Jobs Available</a>
-        <a href="apply.html">Apply Here</a>
-        <a href="about.html">About</a>
-        <a href="mailto:inquires@solvex.com.au"> Email</a>
-  </nav>
+  <?php include_once("nav.inc"); ?>
  
 <main>
   <h2> Group 3 </h2>
@@ -155,11 +145,7 @@
 </main>
 <br><br><br><br>
 
-  <footer>
-    <p>&copy; Solvex: We Specialize in Your Solutions</p>
-    <p>Github Repository: <a href="https://github.com/Janet1411/project1.git" target="_blank" title="Git-Repo">g03 - Solvex</a></p>
-    <p>Jira: <a href="https://khubi021006.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?epics=visible&atlOrigin=eyJpIjoiMDZkMGUzZjI4NTQwNDAxNGExOTY2Njk3MjAwMmVjNTUiLCJwIjoiaiJ9" target="_blank" title="Jira">g03 - Solvex</a></p>
-  </footer>
+  <?php include_once("footer.inc"); ?>
 
 </body>
 </html>
