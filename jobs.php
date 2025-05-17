@@ -1,254 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Janet Yin" content="Position Descriptions page: The page contains description of what the jobs available at Solvex at the moment">
-    <title>Jobs Available</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/jobs.css">
-</head>
+<?php
+include_once("header.inc");
+include_once("nav.inc");
+require_once("settings.php");
 
-<body>
-    <?php include_once("header.inc"); ?>
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
-    <?php include_once("nav.inc"); ?>
+if (!$conn) {
+    echo "<p class='error'>Unable to connect to the database.</p>";
+} else {
+    $query = "SELECT * FROM jobs";
+    $result = mysqli_query($conn, $query);
 
-    <main>
-        <aside>
-            <nav>
-                <ul>
-                    <li><a href="#admin">Network Administrator</a></li>
-                    <li><a href="#analyst">Data Analyst</a></li>
-                    <li><a href="#cyber">Cybersecurity Specialist</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <aside>
-            <h2 class="benefits">What We Offer</h2>
-                    <ul>
-                        <li><strong><em>Flexible work options</em></strong> - remote or hybrid, with flexible hours</li>
-                        <li><strong><em>Competitive salary</em></strong> with performance-based reviews</li>
-                        <li><strong><em>Growth opportunities</em></strong> - paid training, certifications, and clear career paths</li>                           
-                        <li><strong><em>Generous time off</em></strong> - vacation, sick leave, and mental health days</li>  
-                        <li><strong><em>Wellness support</em></strong> - health insuarance, benefits and wellness stipends</li>
-                        <li><strong><em>Modern tools</em></strong> - high-end laptop and software provided</li>
-                        <li><strong><em>Supportive culture</em></strong> - inclusive, collaborative, and no micromanagement</li>
-                        <li><strong><em>Team connection</em></strong> - virtual hangouts, shoutouts, and <em>paid</em> occasional retreats</li>
-                        <!-- chatgpt command prompt: can you write a description, key responsibility, about you, preferred, what we require and what we offer, of network admin job available at solvex, like what they do and what employers normally write here, use dot points when needed-->
-                        <!-- chatgpt command promopt: can you tailor the benefits and make it the most wanted from employee, make it short -->
-                    </ul>
-        </aside>
+    if ($result && mysqli_num_rows($result) > 0) {
+        echo "<main><h2>Current Job Openings</h2>";
+        
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<section class="job-Available">';
+            echo "<h2>{$row['title']} (Ref: {$row['job_ref']})</h2>";
+            echo "<section class='basicInfo'>";
+            echo "<p><strong>Salary:</strong> {$row['salary']}</p>";
+            echo "<p><strong>Location:</strong> {$row['location']}</p>";
+            echo "<p><strong>Work Mode:</strong> {$row['mode']}</p>";
+            echo "</section>";
 
-        <section class="job-Available">
-           <h2>Job #1</h2> 
-            <section class="basicInfo">
-                <h2 id="admin" class="position">Network Administrator</h2>
-                <p>Reference number: 00125</p>
-                <p><img src="images/money_logo.png" alt="money" loading="lazy">Salary: $195,000 + </p>
-                <!--Chatgpt command prompt: can you generate paper money symbol black and white-->
-                <p><img src="images/location_logo.png" alt="place" loading="lazy">Company Location: 57 ValeTech Avenue, 3rd Floor, Nova Park Business District, Riverton, CA 90231, Victoria</p>
-                <!--Chatgpt command prompt: can you generate location symbol black and white-->
-                <p><img src="images/laptop_logo.png" alt="laptop" loading="lazy">Work Mode Available: Hybrid</p>
-                <!--Chatgpt command prompt: can you generate laptop symbol black and white-->
-            </section>
-            <section class="furtherInfo">
-                <p class="description">Solvex is seeking a dedicated <strong><em>Network Administrator</em></strong> to join our growing team. In this role, you'll be responsible for managing and maintaining the company's internal networks, ensuring a secure, stable, and high-performing infrastructure. You'll work closely with developers, designers, and leadership to support daily operations and implement IT solutions that drive efficiency and innovation.</p>
-                <!-- chatgpt command prompt: can you write a description, key responsibility, about you, preferred, what we require and what we offer, of network admin job available at solvex, like what they do and what employers normally write here, use dot points when needed-->
-                <p>If successful, you will report to IT Manager or Head of IT / Infrastructure.</p>
-                <!-- who will those three roles report to? -->
+            echo "<section class='furtherInfo'>";
+            echo "<p class='description'>{$row['description']}</p>";
+            echo "<h3 class='responsibility'>Key Responsibilities</h3>";
+            echo $row['responsibilities'];
+            echo "<h3 class='skills'>About You</h3>";
+            echo "<table><thead><tr><th>What we require</th><th>Preferred</th></tr></thead><tbody>";
+            echo "<tr><td>{$row['requirements']}</td><td>{$row['preferred']}</td></tr>";
+            echo "</tbody></table>";
+            echo "</section></section><br><br>";
+        }
 
-                <h3 class="responsibility">Key Responsibilities</h3>
-                    <ul>
-                        <li>Monitor, maintain, and optimize company networks and servers</li>
-                        <li>Configure and manage routers, switches, firewalls, and wireless access points</li>
-                        <li>Troubleshoot and resolve network-related issues in a timely manner</li>
-                        <li>Manage system backups, software updates, and security patches</li>
-                        <li>Implement and maintain network security protocols (firewalls, VPNs, antivirus, etc.)</li>
-                        <li>Control user access and permissions</li>
-                        <li>Document network infrastructure, configurations, and procedures</li>
-                        <li>Provide technical support and guidance to internal teams</li>
-                        <li>Assist with IT planning, upgrades, and expansion projects</li>
-                        <!-- chatgpt command prompt: can you write a description, key responsibility, about you, preferred, what we require and what we offer, of network admin job available at solvex, like what they do and what employers normally write here, use dot points when needed-->
-                    </ul>
+        echo "</main>";
+    } else {
+        echo "<p>No jobs found in the database.</p>";
+    }
 
-                <h3 class="skills">About you</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>What we require</th>
-                                <th>Preferred</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <ol>
-                                        <li>Solid understanding of networking concepts (TCP/IP, DNS, DHCP, etc.)</li>
-                                        <li>Experience with configuring and maintaining networking hardware</li>
-                                        <li>Knowledge of cybersecurity best practices</li>
-                                        <li>Ability to diagnose and resolve technical issues independently</li>
-                                        <li>Degree in Computer Science, Information Technology, or a related field (or equivalent experience)</li>
-                                        <!-- chatgpt command prompt: can you write a description, key responsibility, about you, preferred, what we require and what we offer, of network admin job available at solvex, like what they do and what employers normally write here, use dot points when needed-->
-                                    </ol>
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li>2+ years of experience in network or systems administration</li>
-                                        <li>Hands-on experience with both Windows and Linux environments</li>  
-                                        <li>Familiarity with cloud services (e.g., AWS, Azure)</li>
-                                        <li>Experience with remote access tools and VPN configuration</li>                                       
-                                        <li>Industry certifications (e.g., CompTIA Network+, Cisco CCNA, MCSA)</li>
-                                        <!-- chatgpt command prompt: can you write a description, key responsibility, about you, preferred, what we require and what we offer, of network admin job available at solvex, like what they do and what employers normally write here, use dot points when needed-->
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                
-            </section>
-        </section>
+    mysqli_close($conn);
+}
 
-        <br><br><br>
-
-        <section class="job-Available">
-            <h2>Job #2</h2>
-            <section class="basicInfo">
-                <h2 id="analyst" class="position">Data Analyst</h2>
-                <p>Reference number: 00130</p>
-                <p><img src="images/money_logo.png" alt="money" loading="lazy">Salary: $225,000 + </p>
-                <!--Chatgpt command prompt: can you generate paper money symbol black and white-->
-                <p><img src="images/location_logo.png" alt="place" loading="lazy">Company Location: 57 ValeTech Avenue, 3rd Floor, Nova Park Business District, Riverton, CA 90231, Victoria</p>
-                <!--Chatgpt command prompt: can you generate location symbol black and white-->
-                <p><img src="images/laptop_logo.png" alt="laptop" loading="lazy">Work Mode Available: Remote/Hybrid</p>
-                <!--Chatgpt command prompt: can you generate laptop symbol black and white-->
-            </section>
-            <section class="furtherInfo">
-                <p class="description">Solvex is looking for a detail-oriented <strong><em>Data Analyst</em></strong> to join our growing team. In this role, you'll turn data into insights that help drive strategic decisions across our company and for our clients. You’ll work closely with developers, designers, and leadership to analyze website performance, user behavior, and business metrics, contributing to smarter digital solutions.</p>
-                <!-- chatgpt command prompt: decription, key responsibility, about you, preferred, what we require and what we offer, use dot points when needed for data analyst like the above-->
-                <p>If successful, you will report to Data Manager, Business Intelligence Lead, or Product Manager.</p>
-                <!-- who will those three roles report to? -->
-
-                <h3 class="responsibility">Key Responsibilities</h3>
-                    <ul>
-                        <li>Collect, clean, and analyze data from various sources</li>
-                        <li>Interpret trends and patterns to support business decisions</li>
-                        <li>Create reports and dashboards to visualize key metrics</li>
-                        <li>Identify opportunities to optimize website performance and user engagement</li>
-                        <li>Collaborate with cross-functional teams to align data insights with business goals</li>
-                        <li>Present findings clearly to both technical and non-technical stakeholders</li>
-                        <li>Monitor and maintain data accuracy and integrity</li>
-                        <!-- chatgpt command prompt: decription, key responsibility, about you, preferred, what we require and what we offer, use dot points when needed for data analyst like the above-->
-                    </ul>
-
-                <h3 class="skills">About you</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>What we require</th>
-                                <th>Preferred</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <ol>
-                                        <li>Strong knowledge of data collection, analysis, and reporting methods
-                                        <li>Ability to translate data into actionable insights</li>
-                                        <li>Experience working with large datasets</li>
-                                        <li>Degree in Data Science, Statistics, Computer Science, or a related field</li>
-                                        <li>Solid understanding of data privacy and security practices</li>
-                                        <!-- chatgpt command prompt: decription, key responsibility, about you, preferred, what we require and what we offer, use dot points when needed for data analyst like the above-->
-                                    </ol>
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li>2+ years of experience in a data analysis or similar role</li>
-                                        <li>Proficiency in Excel, SQL, and data visualization tools (e.g., Power BI, Tableau)</li>
-                                        <li>Experience with Google Analytics or other web analytics tools</li>
-                                        <li>Familiarity with Python or R is a plus</li>  
-                                        <li>Understanding of website metrics and digital marketing KPIs</li>
-                                        <!-- chatgpt command prompt: decription, key responsibility, about you, preferred, what we require and what we offer, use dot points when needed for data analyst like the above-->
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-            </section>
-        </section>
-
-        <br><br><br>
-
-        <section class="job-Available">
-            <h2>Job #3</h2>
-            <section class="basicInfo">
-                <h2 id="cyber" class="position">Cybersecurity Specialist</h2>
-                <p>Reference number: 00135</p>
-                <p><img src="images/money_logo.png" alt="money" loading="lazy">Salary: $300,000 + </p>
-                <!--Chatgpt command prompt: can you generate paper money symbol black and white-->
-                <p><img src="images/location_logo.png" alt="place" loading="lazy">Company Location: 57 ValeTech Avenue, 3rd Floor, Nova Park Business District, Riverton, CA 90231, Victoria</p>
-                <!--Chatgpt command prompt: can you generate location symbol black and white-->
-                <p><img src="images/laptop_logo.png" alt="laptop" loading="lazy">Work Mode Available: On-site</p>
-                <!--Chatgpt command prompt: can you generate laptop symbol black and white-->
-            </section>
-            <section class="furtherInfo">
-                <p class="description">Solvex is looking for a skilled and vigilant <strong><em>Cybersecurity Specialist</em></strong> to safeguard our digital infrastructure and client-facing platforms. In this role, you'll take the lead on identifying threats, hardening systems, and building security protocols to protect sensitive information. You'll be essential in ensuring that our web solutions are secure, compliant, and resilient.</p>
-                <!-- chatgpt command prompt: decription, key responsibility, about you, preferred, what we require and what we offer, use dot points when needed for cybersecurity specialist like the above-->
-                <p>If successful, you will report to Chief Information Security Officer (CISO) or Security Lead</p>
-                <!-- chatgpt command prompt: who will those three roles report to?-->
-
-                <h3 class="responsibility">Key Responsibilities</h3>
-                    <ul>
-                        <li>Design, implement, and maintain security systems and protocols</li>
-                        <li>Monitor networks and systems for security vulnerabilities and breaches</li>   
-                        <li>Respond to and investigate security incidents in a timely manner</li>   
-                        <li>Conduct risk assessments, audits, and penetration tests</li> 
-                        <li>Develop and enforce security policies, procedures, and best practices</li>   
-                        <li>Collaborate with IT and development teams to integrate security at every level</li>   
-                        <li>Stay updated on the latest cybersecurity trends, tools, and threats</li>
-                        <!-- chatgpt command prompt: decription, key responsibility, about you, preferred, what we require and what we offer, use dot points when needed for cybersecurity specialist like the above-->
-                    </ul>
-
-                <h3 class="skills">About you</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>What we require</th>
-                                <th>Preferred</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <ol>
-                                        <li>Solid understanding of network and system security fundamentals</li>
-                                        <li>Experience with threat detection, response, and prevention</li>   
-                                        <li>Ability to develop and implement security policies and protocols</li>   
-                                        <li>Proficiency in cybersecurity tools and technologies</li>
-                                        <li>Degree in Cybersecurity, Computer Science, or a related field (or equivalent experience)</li>
-                                        <!-- chatgpt command prompt: decription, key responsibility, about you, preferred, what we require and what we offer, use dot points when needed for cybersecurity specialist like the above-->
-                                    </ol>
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li>2+ years of experience in cybersecurity or IT security</li>
-                                        <li>Hands-on experience with firewalls, SIEM tools, endpoint protection, and vulnerability scanning</li>  
-                                        <li>Knowledge of security standards and frameworks (e.g., NIST, ISO 27001, OWASP)</li>
-                                        <li>Familiarity with secure coding practices and web application security</li>
-                                        <li>Certifications such as CompTIA Security+, CEH, or CISSP are a strong plus</li>
-                                        <!-- chatgpt command prompt: decription, key responsibility, about you, preferred, what we require and what we offer, use dot points when needed for cybersecurity specialist like the above-->
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                
-            </section>
-        </section>
-    </main>
-
-    <?php include_once("footer.inc"); ?>
-</body>
-
-</html>
+include_once("footer.inc");
+?>
