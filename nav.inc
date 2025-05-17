@@ -3,5 +3,6 @@
     <a href="jobs.php">Jobs Available</a>
     <a href="apply.php">Apply Here</a>
     <a href="about.php">About</a>
-    <a href="mailto:inquires@solvex.com.au"> Email</a>
+    <a href="mailto:inquires@solvex.com.au">Email</a>
+    <a href="login.php">Application info</a>
 </nav>
