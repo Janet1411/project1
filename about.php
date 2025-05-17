@@ -79,16 +79,24 @@
        <img src="images/IMG_2628.png" alt ="Group Photo"  loading ="lazy">
     </figure>
       
+  <dl>
+    <dt>Contributions made by Group Members</dt>
     
-    <dl>
-      <dt> Contributions made by Group Members </dt>
-      <dt>Janet Yin</dt>
-      <dd>Designed the first 2 pages of the website (Only working with HTML)</dd>
-      <dt>Khubi Shah</dt>
-      <dd>Worked on styling and user-interactivity of the websites (Only worked on CSS)</dd>
-      <dt>Shivi Gupta</dt>
-      <dd>Designed the last 2 pages of the website(mainly worked with Html)</dd>
-   </dl><br><br>
+    <dt>Janet Yin</dt>
+    <dd>
+      Janet was responsible for setting up reusable components across the website using PHP include files for the header, navigation, and footer. She also created the database connection file ('settings.php'), established the structure and creation of the Expressions of Interest (EOI) table in MySQL, and developed the form processing script ('process_eoi.php') that securely validates and stores application data into the database using server-side validation. [Tasks 1 to 4]
+    </dd>
+
+    <dt>Shivi Gupta</dt>
+    <dd>
+      Shivi developed the administrative interface ('manage.php') that allows the HR manager to view, sort, update, and delete job applications. She also implemented login authentication, built secure session handling for access control, and added protections against repeated failed login attempts to enhance the site's security. [Task 5]
+    </dd>
+
+    <dt>Khubi Shah</dt>
+    <dd>
+      Khubi was responsible for updating and maintaining the About page content, ensuring that team member contributions were accurately documented. She also created a dynamic job listing system that loads job descriptions from a MySQL database using PHP, and implemented a range of functional and aesthetic enhancements across the site, such as improved responsiveness and user interactivity. [Tasks 6 to 8]
+    </dd>
+</dl>
     
   <table>
     <caption> Members Interests</caption>
