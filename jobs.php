@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Janet Yin" content="Position Descriptions page">
+    <meta name="Janet Yin" content="The page contains description of what the jobs available at Solvex at the moment">
+    <title>Jobs Available</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/jobs.css">
+</head>
+
+<body>
+
 <?php
 // Show errors during development
 error_reporting(E_ALL);
@@ -54,3 +68,7 @@ require_once("settings.php");
 </main>
 
 <?php include_once("footer.inc"); ?>
+
+</body>
+
+</html>
