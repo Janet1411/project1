@@ -19,7 +19,7 @@
   <main>
       <h2> Apply Here for the Job </h2>
         
-      <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="POST" >
+      <form action="process_eoi.php" method="POST" >
 
           <label for="job_ref_num" class="required">Job Reference number </label><br>
           <select name="job_ref_num" id="job_ref_num" required>
