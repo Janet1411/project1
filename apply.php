@@ -19,7 +19,7 @@
   <main>
       <h2> Apply Here for the Job </h2>
         
-      <form action="process_eoi.php" method="POST" >
+      <form action="process_eoi.php" method="POST" novalidate="novalidate">
 
           <label for="job_ref_num" class="required">Job Reference number </label><br>
           <select name="job_ref_num" id="job_ref_num" required>
@@ -117,7 +117,7 @@
               </div>
 
               <div class="box">
-                <input type="checkbox" id="R" name="Skill" value="R">
+                <input type="checkbox" id="R" name="skill" value="R">
                 <label  for="R"> R (for statistical analysis and visualization) </label><br>
               </div>
 
@@ -129,6 +129,11 @@
               <div class="box">
                 <input type="checkbox" id="rel_dbms" name="skill" value="Relational Databases">
                 <label  for="rel_dbms"> Relational Databases (MySQL, PostgreSQL, SQL Server) </label><br>
+              </div>
+
+              <div class="box">
+                <input type="checkbox" id="other" name="skill" value="other">
+                <label  for="other"> Other Skills </label><br>
               </div>
             </fieldset><br><br>
 
@@ -142,7 +147,7 @@
             Please upload only .pdf, .doc, .docx only
             </span><br><br>
             
-            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" >
           </section>
           <br><br><br>
           
