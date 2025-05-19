@@ -115,7 +115,6 @@ button:hover {
       justify-content: center;
       flex-wrap: nowrap;
       flex-direction: column;
-  
     }
 
     .box {
@@ -124,17 +123,18 @@ button:hover {
       padding: 30px;
       width: 500px;
       height:30px;
-      box-shadow: 0 8px 20px lightslategray;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
       display: flex;
       font-size: 18px;
       color: #333;
       transition: transform 0.3s, box-shadow 0.2s;
-
+      position: relative;
     }
 
     .box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      transform: translateY(2px);
+      box-shadow: 0 4px 20px lightslategray;
+      z-index: 0;
     }
 
  
