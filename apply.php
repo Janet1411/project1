@@ -157,7 +157,7 @@
 
             <!-- remove span; change text to small,italics, and grey  -->
           
-            <span class="gray"> I confirm that I have read, understood and agree to Solvex's <a href="" > policies, terms and conditions </a> which sets out the ways in which company_name may collect, use, disclose and hold my personal information.
+            <span class="gray"> I confirm that I have read, understood and agree to Solvex's <a href="" > policies, terms and conditions </a> which sets out the ways in which Solvex may collect, use, disclose and hold my personal information.
             </span>
 
             <!-- add css for the link; like link colour, visited link,hover and active -->
