@@ -147,7 +147,7 @@
             Please upload only .pdf, .doc, .docx only
             </span><br><br>
             
-            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" >
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required class="required">
           </section>
           <br><br><br>
           
