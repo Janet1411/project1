@@ -151,20 +151,26 @@
         job_ref, first_name, last_name, date_of_birth, gender,
         street, suburb, state, postcode, email, phone,
         skill_tableau, skill_google, skill_python, skill_r, skill_sql,
-        skill_relational, other, other_skills
+        skill_relational, other_skills
     ) VALUES (
         '$job_ref', '$first_name', '$last_name', STR_TO_DATE('$date_of_birth', '%d-%m-%Y'), '$gender',
         '$street', '$suburb', '$state', '$postcode', '$email', '$phone',
         '$skill_tableau', '$skill_google', '$skill_python', '$skill_r', '$skill_sql',
-        '$skill_relational', '$other', '$other_skills'
+        '$skill_relational', '$other_skills'
     )";
     mysqli_query($conn, $insert_query);
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") { #is form is submitted
-        $query = "SELECT * FROM EOI";
-        $result = mysqli_query($conn, $query);
-        echo "<p>Your EOI number is:</p>".
-        mysqli_insert_id($conn);
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { #if form is submitted
+        if (mysqli_query($conn, $insert_query)) { #if connect to database and insert value
+            $eoi_num = mysqli_insert_id($conn); #get the auto-generated eoi number
+            if ($eoi_num) {
+                echo "<p>Your EOI number is: $eoi_num</p>";
+            } else {
+                echo "<p>Error: Unable to retrieve EOI number.</p>";
+            }
+        } else {
+            echo "<p>Error: " . mysqli_error($conn) . "</p>"; #display error
+        }
     } else {
         header("Location: apply.php");
         exit();

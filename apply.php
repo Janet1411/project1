@@ -102,37 +102,37 @@
 
               <!-- use flexbox for checkboxes -->
               <div class="box">
-                <input type="checkbox" id="tableau" name="skill" value="Tableau / Power BI" checked required>
+                <input type="checkbox" id="tableau" name="tableau" value="Tableau / Power BI" checked required>
                 <label  for="tableau"> Tableau / Power BI  </label><br>
               </div>
 
               <div class="box">
-                <input type="checkbox" id="data_studio" name="skill" value="Google Data Studio">
+                <input type="checkbox" id="data_studio" name="data_studio" value="Google Data Studio">
                 <label  for="data_studio"> Google Data Studio </label><br>
               </div>
 
               <div class="box">
-                <input type="checkbox" id="python" name="skill" value="Python (pandas, numpy, matplotlib)">
+                <input type="checkbox" id="python" name="python" value="Python (pandas, numpy, matplotlib)">
                 <label  for ="python"> Python (pandas, numpy, matplotlib) </label><br>
               </div>
 
               <div class="box">
-                <input type="checkbox" id="R" name="skill" value="R">
+                <input type="checkbox" id="R" name="R" value="R">
                 <label  for="R"> R (for statistical analysis and visualization) </label><br>
               </div>
 
               <div class="box">
-                <input  type="checkbox" id="sql" name="skill" value="SQL">
+                <input  type="checkbox" id="sql" name="sql" value="SQL">
                 <label for="sql"> SQL  (for querying databases) </label><br>
               </div>
 
               <div class="box">
-                <input type="checkbox" id="rel_dbms" name="skill" value="Relational Databases">
+                <input type="checkbox" id="rel_dbms" name="rel_dbms" value="Relational Databases">
                 <label  for="rel_dbms"> Relational Databases (MySQL, PostgreSQL, SQL Server) </label><br>
               </div>
 
               <div class="box">
-                <input type="checkbox" id="other" name="skill" value="other">
+                <input type="checkbox" id="other" name="other" value="other">
                 <label  for="other"> Other Skills </label><br>
               </div>
             </fieldset><br><br>
