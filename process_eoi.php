@@ -147,6 +147,8 @@
         `Status` enum('New','Current','Final','') NOT NULL DEFAULT 'New'
     )";
 
+    mysqli_query($conn, $create_table_sql);
+
     $insert_query = "INSERT INTO EOI (
         job_ref, first_name, last_name, date_of_birth, gender,
         street, suburb, state, postcode, email, phone,
