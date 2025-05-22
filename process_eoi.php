@@ -1,5 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>EOI number</title>
+</head>
+<body>
+
 <?php
-    error_reporting(E_ALL); #report report
+    include("header.inc");
+    include("nav.inc");
+?>
+
+<?php
+    error_reporting(E_ALL); #report error
     ini_set('display_errors', 1); #show error on screen
 
     require_once("settings.php");
@@ -31,6 +46,7 @@
     $other = sanitize_input($_POST['other'] ?? '');
     $other_skills = sanitize_input($_POST['other_skills'] ?? '');
     $terms = ($_POST['terms'] ?? '');
+
     if (empty($terms)) {
         die ("Please agree to the terms and conditions before proceeding.");
     }
@@ -40,7 +56,7 @@
         die ("Please fill in the required field.");
     }
 
-    if (!preg_match("/^[A-Za-z]{1,20}$/", $last_name)) {
+    if (!preg_match("/^[A-Za-z]{1,20}$/", $last_name)) { #^: start of the string, $: end of the string, /:start and end of the regular expression (regex) pattern
         die ("Last name: 20 alpha characters allowed.");
     }
     if (!preg_match("/^[A-Za-z]{1,20}$/", $first_name)) {
@@ -58,24 +74,33 @@
         die ("Suburb: Please fill in the required field, 20 alpha characters allowed.");
     }
 
+    function in_range($number, $ranges) {
+        foreach ($ranges as $range) {
+            if ($number >= $range[0] && $number <= $range[1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     $post_vali = [
-        'vic' => ['3', '8'],
-        'nsw' => ['1', '2'],
-        'qld' => ['4', '9'],
-        'nt'  => ['0'],
-        'wa'  => ['6'],
-        'sa'  => ['5'],
-        'tas' => ['7'],
-        'act' => ['0']
+        'vic' => [[3000, 3996], [8000, 8999]],
+        'nsw' => [[1000, 2599], [2619, 2898]],
+        'qld' => [[4000, 4999], [9000, 9999]],
+        'nt'  => [[800, 999]],
+        'wa'  => [[6000, 6797], [6800, 6999]],
+        'sa'  => [[5000, 5999]],
+        'tas' => [[7000, 7150], [7152, 7799], [7800, 7999]],
+        'act' => [[200, 299], [2600, 2618], [2900, 2920]],
     ];
 
+    $postcode_num = (int) $postcode;
     if (!preg_match("/^\d{4}$/", $postcode)) {
         die ("Postcode: 4 digits allowed.");
-    } elseif (!in_array($postcode[0], $post_vali[$state] ?? [])) {
-    #$postcode[0] -> first digit in the postcode should match $post_vali[$state]
+    } elseif (!isset($post_vali[$state]) || !in_range($postcode_num, $post_vali[$state])) {
+        #!isset: check if variable is null (when function return false)
         die ("Please input the correct postcode.");
     }
-    
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die ("Email: Please fill in the required field in the correct format.");
@@ -160,13 +185,12 @@
         '$skill_tableau', '$skill_google', '$skill_python', '$skill_r', '$skill_sql',
         '$skill_relational', '$other_skills'
     )";
-    mysqli_query($conn, $insert_query);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") { #if form is submitted
         if (mysqli_query($conn, $insert_query)) { #if connect to database and insert value
             $eoi_num = mysqli_insert_id($conn); #get the auto-generated eoi number
-            if ($eoi_num) {
-                echo "<p>Your EOI number is: $eoi_num</p>";
+            if ($eoi_num) { #if $eoi_num exists
+                echo "<p><center><h1>Your EOI number is: $eoi_num</h1></center></p>";
             } else {
                 echo "<p>Error: Unable to retrieve EOI number.</p>";
             }
@@ -179,3 +203,9 @@
     }
     mysqli_close($conn);
 ?>
+
+<?php
+    include("footer.inc");
+?>
+</body>
+</html>
