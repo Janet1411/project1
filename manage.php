@@ -1,14 +1,8 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$dbname = 'solvex_db';
-
-$conn = mysqli_connect($host, $user, $pass, $dbname);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+    require_once("settings.php");
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        header('Location: login.php');
+        }
 ?>
 
 <!DOCTYPE html>
