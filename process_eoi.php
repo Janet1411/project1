@@ -179,20 +179,7 @@
 
     mysqli_query($conn, $create_table_sql);
 
-    $insert_query = "INSERT INTO EOI (
-        job_ref, first_name, last_name, date_of_birth, gender,
-        street, suburb, state, postcode, email, phone,
-        skill_tableau, skill_google, skill_python, skill_r, skill_sql,
-        skill_relational, other_skills
-    ) VALUES (
-        '$job_ref', '$first_name', '$last_name', '$date_of_birth', '$gender',
-        '$street', '$suburb', '$state', '$postcode', '$email', '$phone',
-        '$skill_tableau', '$skill_google', '$skill_python', '$skill_r', '$skill_sql',
-        '$skill_relational', '$other_skills'
-    )";
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") { #if form is submitted
-        // Show errors if any
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!empty($errors)) {
             echo "<div class='alert'><ul>";
             foreach ($errors as $error) {
@@ -202,20 +189,40 @@
             include("footer.inc");
             exit();
         }
-        if (mysqli_query($conn, $insert_query)) { #if connect to database and insert value
-            $eoi_num = mysqli_insert_id($conn); #get the auto-generated eoi number
-            if ($eoi_num) { #if $eoi_num exists
+
+        $stmt = $conn->prepare("INSERT INTO EOI ( #prep data, send query to database but doesn't execute it immediately
+            job_ref, first_name, last_name, date_of_birth, gender,
+            street, suburb, state, postcode, email, phone,
+            skill_tableau, skill_google, skill_python, skill_r, skill_sql,
+            skill_relational, other_skills
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); #?: placeholder
+
+        $stmt->bind_param( #Binds actual values to the placeholders. "ss" means two strings are being passed in safely.
+            "ssssssssssssssssss",
+            $job_ref, $first_name, $last_name, $date_of_birth, $gender,
+            $street, $suburb, $state, $postcode, $email, $phone,
+            $skill_tableau, $skill_google, $skill_python, $skill_r, $skill_sql,
+            $skill_relational, $other_skills
+        );
+
+        if ($stmt->execute()) { #Sends the safe, complete SQL query to the database to run.
+            $eoi_num = $conn->insert_id; #Returns the ID (generated with AUTO_INCREMENT) from the last inserted query
+            if ($eoi_num) {
                 echo "<p><center><h1>Your EOI number is: $eoi_num</h1></center></p>";
             } else {
-                echo "<p>Error: Unable to retrieve EOI number.</p>";
+                echo "<p>Please try again.</p>";
             }
         } else {
-            echo "<p>Error: " . mysqli_error($conn) . "</p>"; #display error
+            echo "<p>Error: " . $stmt->error . "</p>"; #$stmt->error: Return the last error description for the most recent function call, if any
         }
+
+        $stmt->close();
+
     } else {
         header("Location: apply.php");
         exit();
     }
+
     mysqli_close($conn);
 ?>
 
