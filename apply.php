@@ -101,44 +101,45 @@
               <legend class= "required"> Required technical skill list<span class="field-mandatory">*</span></legend>
 
               <!-- use flexbox for checkboxes -->
-              <div class="box">
-                <input type="checkbox" id="tableau" name="tableau" value="Tableau / Power BI" checked required>
-                <label  for="tableau"> Tableau / Power BI  </label><br>
-              </div>
+              <label class="box">
+                <input type="checkbox" name="tableau" value="Tableau / Power BI" checked required>
+                Tableau / Power BI
+              </label>
 
-              <div class="box">
-                <input type="checkbox" id="data_studio" name="data_studio" value="Google Data Studio">
-                <label  for="data_studio"> Google Data Studio </label><br>
-              </div>
+              <label class="box">
+                <input type="checkbox" name="data_studio" value="Google Data Studio">
+                Google Data Studio
+              </label>
 
-              <div class="box">
-                <input type="checkbox" id="python" name="python" value="Python (pandas, numpy, matplotlib)">
-                <label  for ="python"> Python (pandas, numpy, matplotlib) </label><br>
-              </div>
+              <label class="box">
+                <input type="checkbox" name="python" value="Python (pandas, numpy, matplotlib)">
+                Python (pandas, numpy, matplotlib)
+              </label>
 
-              <div class="box">
-                <input type="checkbox" id="R" name="R" value="R">
-                <label  for="R"> R (for statistical analysis and visualization) </label><br>
-              </div>
+              <label class="box">
+                <input type="checkbox" name="R" value="R">
+                R (for statistical analysis and visualization)
+              </label>
 
-              <div class="box">
-                <input  type="checkbox" id="sql" name="sql" value="SQL">
-                <label for="sql"> SQL  (for querying databases) </label><br>
-              </div>
+              <label class="box">
+                <input type="checkbox" name="sql" value="SQL">
+                SQL (for querying databases)
+              </label>
 
-              <div class="box">
-                <input type="checkbox" id="rel_dbms" name="rel_dbms" value="Relational Databases">
-                <label  for="rel_dbms"> Relational Databases (MySQL, PostgreSQL, SQL Server) </label><br>
-              </div>
+              <label class="box">
+                <input type="checkbox" name="rel_dbms" value="Relational Databases">
+                Relational Databases (MySQL, PostgreSQL, SQL Server)
+              </label>
 
-              <div class="box">
-                <input type="checkbox" id="other" name="other" value="other">
-                <label  for="other"> Other Skills </label><br>
-              </div>
-            </fieldset><br><br>
+              <label class="box">
+                <input type="checkbox" name="other" value="other">
+                Other Skills
+              </label>
+            </fieldset><br>
 
-            <label for="other_skills"> Other Skills </label><br>
+            <label for="other_skills"> Please Specify:</label>
             <textarea id="other_skills" name="other_skills" rows="5" cols="50"></textarea><br><br>
+
 
             <label for="resume" class="required">Upload Resume:</label><br>
 
