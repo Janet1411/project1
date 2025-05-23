@@ -3,7 +3,7 @@
 session_start();
 
 $manager_username = "manager"; 
-$manager_password = "12345"; 
+$hashed_password = '$2y$10$kjEPsQtA92cjxt6n60ft7uSvlLyfI3UcALQU4kVEVIN6HiN2q0Gjq'; // password: 12345
 
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
@@ -21,12 +21,12 @@ if ($_SESSION['login_attempts'] >= 3) {
         $_SESSION['locked_until'] = 0;
     }
 }
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $username = trim($_POST['username'] ?? '');
+    $password = trim($_POST['password'] ?? '');
 
-    if ($username === $manager_username && $password === $manager_password) {
+    if ($username === $manager_username && password_verify($password, $hashed_password)) {
+        session_regenerate_id(true);
         $_SESSION['role'] = 'manager';
         $_SESSION['username'] = $username;
         header("Location: manage.php");
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,19 +54,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="login-card">
-        <h2>Manager Login</h2>
+        <h1>Manager Login</h1>
         <br>
         <!-- used inline css below -->
         <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
 
         <form method="POST" action="login.php">
             <div class="form-options">
-                <label>Username:</label><br>
-                <input type="text" name="username" required>
+                <label for = "username"> Username: </label><br>
+                <input type="text" id="username" name="username" required>
             </div>
             <div class="form-options">
-                <label>Password:</label><br>
-                <input type="password" name="password" required>
+                <label for = "password"> Password: </label><br>
+                <input type="password" id= "password" name="password" required>
             </div>
 
             <input type="submit" value="Login">
