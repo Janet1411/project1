@@ -40,7 +40,7 @@
             <input type="text" id="last_name" name="last_name"  pattern="[A-Za-z]{1,20}"  maxlength="20" title="Only alphabets allowed (max 20 characters)" placeholder="Last Name" required><br><br>
 
             <label for="dob" class="required"> Date of Birth: </label><br>
-            <input type="text" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{4}"  title="Enter a date in the correct format(dd/mm/yyyy)" placeholder= "dd-mm-yyyy" required><br><br>
+            <input type="date" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{4}"  title="Enter a date in the correct format(dd/mm/yyyy)" placeholder= "dd-mm-yyyy" required><br><br>
 
             <fieldset>
               <legend class="required" >Gender:</legend>
