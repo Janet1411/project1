@@ -47,31 +47,35 @@
     $other_skills = sanitize_input($_POST['other_skills'] ?? '');
     $terms = ($_POST['terms'] ?? '');
 
+    $errors = [];
+
     if (empty($terms)) {
-        die ("Please agree to the terms and conditions before proceeding.");
+        $errors[] = "Please agree to the terms and conditions before proceeding.";
     }
 
     #validate input, || means OR
     if (empty($job_ref) || empty($first_name) || empty($last_name) || empty($date_of_birth) || empty($gender) || empty($street) || empty($suburb) || empty($state) || empty($postcode) || empty($email) || empty($phone)) {
-        die ("Please fill in the required field.");
+        $errors[] = "Please fill in all required fields.";
     }
 
-    if (!preg_match("/^[A-Za-z]{1,20}$/", $last_name)) { #^: start of the string, $: end of the string, /:start and end of the regular expression (regex) pattern
-        die ("Last name: 20 alpha characters allowed.");
+    if (!preg_match("/^[A-Za-z]{1,20}$/", $last_name)) {
+        $errors[] = "Last name: 20 alpha characters allowed.";
     }
+
     if (!preg_match("/^[A-Za-z]{1,20}$/", $first_name)) {
-        die ("First name: 20 alpha characters allowed.");
+        $errors[] = "First name: 20 alpha characters allowed.";
     }
 
-    if (!preg_match("/^\d{2}-\d{2}-\d{4}$/", $date_of_birth)) {
-        die ("dd-mm-yyyy required.");
+    if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $date_of_birth)) {
+        $errors[] = "Date of birth format invalid. Use yyyy-mm-dd.";
     }
 
-    if (!preg_match("/^[A-Za-z]{1,40}$/", $street)) {
-        die  ("Street: Please fill in the required field, 20 alpha characters allowed.");
+    if (!preg_match("/^[A-Za-z ]{1,40}$/", $street)) {
+        $errors[] = "Street: Up to 40 alpha characters and spaces allowed.";
     }
-    if (!preg_match("/^[A-Za-z]{1,40}$/", $suburb)) {
-        die ("Suburb: Please fill in the required field, 20 alpha characters allowed.");
+
+    if (!preg_match("/^[A-Za-z ]{1,40}$/", $suburb)) {
+        $errors[] = "Suburb: Up to 40 alpha characters and spaces allowed.";
     }
 
     function in_range($number, $ranges) {
@@ -96,21 +100,20 @@
 
     $postcode_num = (int) $postcode;
     if (!preg_match("/^\d{4}$/", $postcode)) {
-        die ("Postcode: 4 digits allowed.");
+        $errors[] = "Postcode: 4 digits required.";
     } elseif (!isset($post_vali[$state]) || !in_range($postcode_num, $post_vali[$state])) {
         #!isset: check if variable is null (when function return false)
-        die ("Please input the correct postcode.");
+        $errors[] = "Please input the correct postcode for the selected state.";
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die ("Email: Please fill in the required field in the correct format.");
-    }
-    
-    if (!preg_match("/^[0-9 ]{8,12}$/", $phone)) {
-        die ("Phone number: Only digits and spaces allowed.");
+        $errors[] = "Invalid email format.";
     }
 
-    #!!!! the check box are not working !!!!
+    if (!preg_match("/^[0-9 ]{8,12}$/", $phone)) {
+        $errors[] = "Phone number: Only digits and spaces allowed (8-12 characters).";
+    }
+
     if ($skill_tableau){
         $skill_tableau = 'Y';
     } else {
@@ -144,10 +147,20 @@
 
     #Other skills not empty if check box selected validation
     if (($other) && empty($other_skills)) {
-        die("Please specify your other skills.");
+        $errors[] = "Please specify your other skills.";
     }
 
-    #if the table doesn't exist:
+    // Show errors if any
+    if (!empty($errors)) {
+        echo "<div class='alert'><ul>";
+        foreach ($errors as $error) {
+            echo "<li>$error</li>";
+        }
+        echo "</ul></div>";
+        exit();
+    }
+
+        #if the table doesn't exist:
     $create_table_sql= "CREATE TABLE IF NOT EXISTS EOI (
         `EOInumber` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         `job_ref` varchar(50) NOT NULL,
@@ -180,7 +193,7 @@
         skill_tableau, skill_google, skill_python, skill_r, skill_sql,
         skill_relational, other_skills
     ) VALUES (
-        '$job_ref', '$first_name', '$last_name', STR_TO_DATE('$date_of_birth', '%d-%m-%Y'), '$gender',
+        '$job_ref', '$first_name', '$last_name', '$date_of_birth', '$gender',
         '$street', '$suburb', '$state', '$postcode', '$email', '$phone',
         '$skill_tableau', '$skill_google', '$skill_python', '$skill_r', '$skill_sql',
         '$skill_relational', '$other_skills'

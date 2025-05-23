@@ -76,7 +76,7 @@
     </ol>
 
     <figure>
-       <img src="images/IMG_2628.png" alt ="Group Photo"  loading ="lazy">
+       <img src="images/IMG_2628.jpeg" alt ="Group Photo"  loading ="lazy">
     </figure>
       
   <dl>
