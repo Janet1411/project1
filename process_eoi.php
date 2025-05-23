@@ -63,7 +63,7 @@
         die ("First name: 20 alpha characters allowed.");
     }
 
-    if (!preg_match("/^\d{2}-\d{2}-\d{4}$/", $date_of_birth)) {
+    if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $date_of_birth)) {
         die ("dd-mm-yyyy required.");
     }
 
@@ -180,7 +180,7 @@
         skill_tableau, skill_google, skill_python, skill_r, skill_sql,
         skill_relational, other_skills
     ) VALUES (
-        '$job_ref', '$first_name', '$last_name', STR_TO_DATE('$date_of_birth', '%d-%m-%Y'), '$gender',
+        '$job_ref', '$first_name', '$last_name', '$date_of_birth', '$gender',
         '$street', '$suburb', '$state', '$postcode', '$email', '$phone',
         '$skill_tableau', '$skill_google', '$skill_python', '$skill_r', '$skill_sql',
         '$skill_relational', '$other_skills'
