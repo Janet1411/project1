@@ -150,15 +150,7 @@
         $errors[] = "Please specify your other skills.";
     }
 
-    // Show errors if any
-    if (!empty($errors)) {
-        echo "<div class='alert'><ul>";
-        foreach ($errors as $error) {
-            echo "<li>$error</li>";
-        }
-        echo "</ul></div>";
-        exit();
-    }
+
 
         #if the table doesn't exist:
     $create_table_sql= "CREATE TABLE IF NOT EXISTS EOI (
@@ -200,6 +192,16 @@
     )";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") { #if form is submitted
+        // Show errors if any
+        if (!empty($errors)) {
+            echo "<div class='alert'><ul>";
+            foreach ($errors as $error) {
+                echo "<li>$error</li>";
+            }
+            echo "</ul></div>";
+            include("footer.inc");
+            exit();
+        }
         if (mysqli_query($conn, $insert_query)) { #if connect to database and insert value
             $eoi_num = mysqli_insert_id($conn); #get the auto-generated eoi number
             if ($eoi_num) { #if $eoi_num exists
