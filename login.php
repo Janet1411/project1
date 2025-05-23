@@ -2,7 +2,6 @@
 <?php
 session_start();
 
-
 $manager_username = "manager"; 
 $manager_password = "12345"; 
 
