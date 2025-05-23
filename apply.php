@@ -21,7 +21,7 @@
         
       <form action="process_eoi.php" method="POST" novalidate="novalidate">
 
-          <label for="job_ref_num" class="required">Job Reference number </label><br>
+          <label for="job_ref_num" class="required">Job Reference number<span class="field-mandatory">*</span></label><br>
           <select name="job_ref_num" id="job_ref_num" required>
             <option value="" disabled selected>Please select.... </option>
             <option value="00125"> 00125 (Networtk Administrator) </option>
@@ -33,17 +33,17 @@
           <section>
             <h3>Personal Details</h3>
 
-            <label for="first_name" class="required"> First Name: </label><br>
+            <label for="first_name" class="required"> First Name:<span class="field-mandatory">*</span></label><br>
             <input type="text" id="first_name" name="first_name"  pattern="[A-Za-z]{1,20}"  maxlength="20"  title="Only alphabets allowed (max 20 characters)"  placeholder="First Name" required><br><br>
         
-            <label for="last_name" class="required"> Last Name: </label><br>
+            <label for="last_name" class="required"> Last Name:<span class="field-mandatory">*</span></label><br>
             <input type="text" id="last_name" name="last_name"  pattern="[A-Za-z]{1,20}"  maxlength="20" title="Only alphabets allowed (max 20 characters)" placeholder="Last Name" required><br><br>
 
-            <label for="dob" class="required"> Date of Birth: </label><br>
+            <label for="dob" class="required"> Date of Birth:<span class="field-mandatory">*</span></label><br>
             <input type="date" id="dob" name="dob" pattern="\d{2}-\d{2}-\d{4}"  title="Enter a date in the correct format(dd/mm/yyyy)" placeholder= "dd-mm-yyyy" required><br><br>
 
             <fieldset>
-              <legend class="required" >Gender:</legend>
+              <legend class="required" >Gender:<span class="field-mandatory">*</span></legend>
           
               <input type="radio" id="male" name="gender" value="male" required >
               <label for="male">Male</label><br>
@@ -60,13 +60,13 @@
           <section> 
             <h3>Address </h3>
 
-            <label for="street_ad" class="required"> Street Address: </label>
+            <label for="street_ad" class="required"> Street Address:<span class="field-mandatory">*</span></label>
             <input type="text" id="street_ad" name="street_ad" maxlength="40" placeholder="e.g: , street no., street name" required><br><br>
 
-            <label for="suburb" class="required"> Suburb: </label>
+            <label for="suburb" class="required"> Suburb:<span class="field-mandatory">*</span></label>
             <input type="text" id="suburb" name="suburb" pattern="[A-Za-z]{1,40}" maxlength="40" placeholder="e.g: Croydon" required><br><br>
 
-            <label for="state" class="required"> State: </label>
+            <label for="state" class="required"> State:<span class="field-mandatory">*</span></label>
             <select id="state" name="state"  required>
               <option value="" disabled selected>Select your state </option>
               <option value="vic">VIC</option>
@@ -79,7 +79,7 @@
               <option value="act">ACT</option>       
             </select><br><br>
 
-            <label for="postcode" class="required"> Postcode: </label>
+            <label for="postcode" class="required"> Postcode:<span class="field-mandatory">*</span></label>
             <input type="text" id="postcode" name="postcode" pattern="\d+" maxlength="4" placeholder="e.g.: 2600 (Canberra)" title= "Only 4 digits allowed" required><br><br>
             <!-- can also use css for red asterisk  -->
             <!-- add id to all the labels for the red asterisk -->
@@ -88,17 +88,17 @@
           <section>
             <h3>Contact Details</h3>
 
-            <label for="email" class="required"> Email: </label>
+            <label for="email" class="required"> Email:<span class="field-mandatory">*</span></label>
             <input type="email" id="email" name="email"  placeholder="example@domain.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 
-            <label for="phone_no" class="required"> Phone Number: </label>
+            <label for="phone_no" class="required"> Phone Number:<span class="field-mandatory">*</span></label>
             <input type="tel" id="phone_no" name="phone_no"  pattern="[0-9]{8,12}" title="Only digits and spaces allowed (8 to 12 characters)"  placeholder="+61 XXXX XXX XXX" required><br><br>
           </section>
 
           <section>
               <h3> Skills & Qualifications</h3>
             <fieldset class="flexbox">
-              <legend class= "required"> Required technical skill list </legend>
+              <legend class= "required"> Required technical skill list<span class="field-mandatory">*</span></legend>
 
               <!-- use flexbox for checkboxes -->
               <div class="box">
@@ -153,7 +153,7 @@
           
           <label>
             <input type="checkbox" name="terms" required class="required">
-            I agree to Solvex's declared terms and conditions.<br>
+            <span class="field-mandatory">*</span> I agree to Solvex's declared terms and conditions. <br>
 
             <!-- remove span; change text to small,italics, and grey  -->
           
