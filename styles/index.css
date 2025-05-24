@@ -1,13 +1,15 @@
+/* Sidebar (aside) styling */
 aside {
     flex: 1;
     min-width: 220px;
     background: #e9ecef;
-    padding: 25px;
+    padding: 20px;
     border: 2px solid var(--border-color);
     border-radius: 10px;
     margin-right: 20px;
 }
 
+/* Sidebar list reset and spacing */
 aside ul {
     list-style: none;
     padding: 0;
@@ -24,27 +26,28 @@ aside ul li a {
 }
 
 aside ul li a:hover {
-    color: var(--text-color);
+    color: var(--text-color); /* Using a hover color for better user experience */
 }
 
-/* Generic section layout with image and text side by side */
+/* Section layout: image and text side-by-side */
 section {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
 /* Text content inside sections */
-section p, section ul, section ol {
+section p,
+section ul,
+section ol {
     flex: 1 1 55%;
     max-width: 55%;
     line-height: 1.6;
 }
 
-section p img {
-    margin-right: 55px;
-}
 /* Section images */
 section img {
     flex: 1 1 40%;
@@ -57,12 +60,13 @@ section img {
     margin-top: 1px;
 }
 
-/* Optional: style for multiple images in one section (e.g. employees) */
-section img + p, section img + ul {
+/* Adjust spacing when image precedes text */
+section img + p,
+section img + ul {
     margin-top: 20px;
-} 
+}
 
-/* Buttons */
+/* Buttons (including anchor buttons) */
 button,
 a.button {
     background-color: var(--primary-color);
@@ -79,4 +83,29 @@ button:hover,
 a.button:hover {
     background-color: var(--accent-color);
     transform: scale(1.05);
+}
+
+/* Improved mobile responsiveness for smaller screens */
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section p,
+    section ul,
+    section ol {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    section img {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    aside {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 }
