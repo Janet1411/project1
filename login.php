@@ -56,8 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="login-card">
         <h1>Manager Login</h1>
         <br>
-        <!-- used inline css below -->
-        <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+        <?php if (!empty($error)) echo "<p class = 'failed'> $error </p>"; ?>
 
         <form method="POST" action="login.php">
             <div class="form-options">

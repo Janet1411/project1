@@ -12,6 +12,7 @@ if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
+// Initialize variables for filtering and sorting
 $where_clauses = [];
 $filters_applied = [];
 
@@ -21,25 +22,21 @@ if (!empty($_GET['job_ref'])) {
     $where_clauses[] = "job_ref LIKE '%$job_ref%'";
     $filters_applied[] = "Job Ref: " . htmlspecialchars($job_ref);
 }
-
 if (!empty($_GET['status'])) {
     $status = mysqli_real_escape_string($conn, $_GET['status']);
     $where_clauses[] = "Status = '$status'";
     $filters_applied[] = "Status: " . htmlspecialchars($status);
 }
-
 if (!empty($_GET['first_name'])) {
     $first_name = mysqli_real_escape_string($conn, $_GET['first_name']);
     $where_clauses[] = "first_name LIKE '%$first_name%'";
     $filters_applied[] = "First Name: " . htmlspecialchars($first_name);
 }
-
 if (!empty($_GET['last_name'])) {
     $last_name = mysqli_real_escape_string($conn, $_GET['last_name']);
     $where_clauses[] = "last_name LIKE '%$last_name%'";
     $filters_applied[] = "Last Name: " . htmlspecialchars($last_name);
 }
-
 $where_clause = '';
 if (!empty($where_clauses)) {
     $where_clause = "WHERE " . implode(' AND ', $where_clauses);
@@ -55,6 +52,7 @@ $limit = 10;
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int) $_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
+// Reset the filters apllied (shows all EOIs)
 if (isset($_GET['reset'])) {
     header("Location: manage.php");
     exit();
@@ -65,9 +63,9 @@ if (isset($_POST['delete']) && !empty($_POST['delete_job_ref'])) {
     $delete_job_ref = mysqli_real_escape_string($conn, $_POST['delete_job_ref']);
     $delete_sql = "DELETE FROM EOI WHERE job_ref = '$delete_job_ref'";
     if (mysqli_query($conn, $delete_sql)) {
-        echo "<p style='color:red; font-weight: bold;'>All EOIs with Job Ref '$delete_job_ref' have been deleted.</p>";
+        echo "<p class = 'failed'> All EOIs with Job Ref '$delete_job_ref' have been deleted. </p>";
     } else {
-        echo "<p style='color:red;'>Error deleting EOIs: " . mysqli_error($conn) . "</p>";
+        echo "<p class = 'failed'> Error deleting EOIs: " . mysqli_error($conn) . "</p>";
     }
 }
 
@@ -81,12 +79,12 @@ if (isset($_POST['update_status']) && !empty($_POST['eoi_number']) && !empty($_P
     if (mysqli_num_rows($check_result) > 0) {
         $update_sql = "UPDATE EOI SET Status = '$new_status' WHERE EOInumber = '$eoi_number'";
         if (mysqli_query($conn, $update_sql)) {
-            echo "<p style='color:green;'>EOI #$eoi_number status updated to <strong>$new_status</strong>.</p>";
+            echo "<p class='passed'> EOI #$eoi_number status updated to <strong>$new_status</strong>.</p>";
         } else {        
-            echo "<p style='color:red;'>Failed to update status: " . mysqli_error($conn) . "</p>";
+            echo "<p class='failed'> Failed to update status: " . mysqli_error($conn) . "</p>";
         }
-    } else {        /* inline css used here*/
-        echo "<p style='color:red;'>EOI #$eoi_number not found.</p>";
+    } else {        
+        echo "<p class = 'failed'> EOI #$eoi_number not found. </p>";
     }
 }
 
@@ -161,6 +159,7 @@ $data_result = mysqli_query($conn, $data_sql);
     <input type="submit" value="Apply Sort">
 </form>
 
+<!-- displays the filters and sorting applied on the eoi table -->
 <?php
 if (!empty($filters_applied)) {
     echo "<p><strong>Filters applied:</strong> " . implode(', ', $filters_applied) . "</p>";
@@ -223,9 +222,9 @@ for ($i = 1; $i <= $total_pages; $i++) {
     $query_params['page'] = $i;
     $query_string = http_build_query($query_params);
     if ($i == $page) {
-        echo "<span class='current-page'>$i</span> ";
+        echo "<span class='current_page'> $i </span> ";
     } else {
-        echo "<a class='page-link' href='?$query_string'>$i</a> ";
+        echo "<a href='?$query_string'> $i </a> ";
     }
 }
 echo "</div>";

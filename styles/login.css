@@ -88,3 +88,7 @@ body {
   box-shadow: 0 6px 20px rgba(75, 85, 99, 0.2);
 }
 
+.failed {
+    color: red;
+    font-weight: bold;
+}
