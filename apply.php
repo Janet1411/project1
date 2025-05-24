@@ -24,7 +24,7 @@
           <label for="job_ref_num" class="required">Job Reference number<span class="field-mandatory">*</span></label><br>
           <select name="job_ref_num" id="job_ref_num" required>
             <option value="" disabled selected>Please select.... </option>
-            <option value="00125"> 00125 (Networtk Administrator) </option>
+            <option value="00125"> 00125 (Network Administrator) </option>
             <option value="00130"> 00130 (Data Analyst) </option>
             <option value="00135"> 00135 (Cybersecurity Specialist) </option>
           </select>

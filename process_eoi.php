@@ -208,7 +208,9 @@
         if ($stmt->execute()) { #Sends the safe, complete SQL query to the database to run.
             $eoi_num = $conn->insert_id; #Returns the ID (generated with AUTO_INCREMENT) from the last inserted query
             if ($eoi_num) {
-                echo "<p><center><h1>Your EOI number is: $eoi_num</h1></center></p>";
+                $_SESSION['eoi_number'] = $eoi_num;
+                header("Location: eoi_num.php");
+                exit();
             } else {
                 echo "<p>Please try again.</p>";
             }
