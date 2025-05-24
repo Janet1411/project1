@@ -64,7 +64,8 @@
             <input type="text" id="street_ad" name="street_ad" maxlength="40" placeholder="e.g: , street no., street name" required><br><br>
 
             <label for="suburb" class="required"> Suburb:<span class="field-mandatory">*</span></label>
-            <input type="text" id="suburb" name="suburb" pattern="[A-Za-z]{1,40}" maxlength="40" placeholder="e.g: Croydon" required><br><br>
+            <input type="text" id="suburb" name="suburb" maxlength="40" placeholder="e.g: Croydon" required><br><br>
+            <!-- <input type="text" id="suburb" name="suburb" pattern="[A-Za-z]{1,40}" maxlength="40" placeholder="e.g: Croydon" required><br><br> -->
 
             <label for="state" class="required"> State:<span class="field-mandatory">*</span></label>
             <select id="state" name="state"  required>
@@ -92,7 +93,7 @@
             <input type="email" id="email" name="email"  placeholder="example@domain.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 
             <label for="phone_no" class="required"> Phone Number:<span class="field-mandatory">*</span></label>
-            <input type="tel" id="phone_no" name="phone_no"  pattern="[0-9]{8,12}" title="Only digits and spaces allowed (8 to 12 characters)"  placeholder="+61 XXXX XXX XXX" required><br><br>
+            <input type="tel" id="phone_no" name="phone_no"  pattern="[0-9 ]{8,12}" title="Only digits and spaces allowed (8 to 12 characters)"  placeholder="+61 XXXX XXX XXX" required><br><br>
           </section>
 
           <section>
@@ -148,7 +149,8 @@
             Please upload only .pdf, .doc, .docx only
             </span><br><br>
             
-            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required class="required">
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+            <!-- <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required class="required"> -->
           </section>
           <br><br><br>
           
@@ -176,6 +178,3 @@
 
 </body>
 </html>
-
-
- 

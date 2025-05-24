@@ -68,7 +68,7 @@
     }
 
     if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $date_of_birth)) {
-        $errors[] = "Date of birth format invalid. Use yyyy-mm-dd.";
+        $errors[] = "Date of birth format invalid.";
     }
 
     if (strlen($street) > 40) {
