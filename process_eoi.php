@@ -71,13 +71,13 @@
         $errors[] = "Date of birth format invalid. Use yyyy-mm-dd.";
     }
 
-    if (!preg_match("/^[A-Za-z ]{1,40}$/", $street)) {
-        $errors[] = "Street: Up to 40 alpha characters and spaces allowed.";
+    if (strlen($street) > 40) {
+        $errors[] = "Street: Maximum 40 characters allowed.";
     }
-
-    if (!preg_match("/^[A-Za-z ]{1,40}$/", $suburb)) {
-        $errors[] = "Suburb: Up to 40 alpha characters and spaces allowed.";
-    }
+    
+    if (strlen($suburb) > 40) {
+        $errors[] = "Suburb: Maximum 40 characters allowed.";
+    }    
 
     function in_range($number, $ranges) {
         foreach ($ranges as $range) {
