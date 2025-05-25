@@ -102,8 +102,8 @@ $data_result = mysqli_query($conn, $data_sql);
 <head>
     <meta charset="UTF-8">
     <title>EOI Management</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/manage.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/manage.css">
 </head>
 <body>
 <div class="top_bar">

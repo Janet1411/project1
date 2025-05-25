@@ -6,8 +6,8 @@
     <meta name="Janet Yin" content="Position Descriptions page">
     <meta name="Janet Yin" content="The page contains description of what the jobs available at Solvex at the moment">
     <title>Jobs Available</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/jobs.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/jobs.css">
 </head>
 
 <body>

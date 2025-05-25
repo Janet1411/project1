@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="../styles/about.css">
     <title> About Page</title>
 </head>
 
@@ -76,7 +76,7 @@
     </ol>
 
     <figure>
-       <img src="images/IMG_2628.jpeg" alt ="Group Photo"  loading ="lazy">
+       <img src="../images/IMG_2628.jpeg" alt ="Group Photo"  loading ="lazy">
     </figure>
       
   <dl>

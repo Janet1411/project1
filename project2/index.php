@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Janet Yin" content="Home page: The page contains description of what the company is about">
     <title>Home</title>
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
             <p>At Solvex, we specialize in crafting high-quality, tailoring your web demands for businesses of all sizes. Our mission is to empower organizations by delivering visually appealing, user-friendly websites that not only reflect your brand but also drive growth and success in the digital world. Whether you need a simple landing page or a complex e-commerce platform, Solvex offers reliable, innovative, and scalable solutions tailored to your unique needs.</p>
             <!-- Chatgpt command prompt: can you write company description, the company name is solvex, sell web page, close knit family, reliable and other info needed can be made up, divide it into three parts, purpose, why choose solvex and our values, the why choose solvex part should be aimed and customers and employees, the why and value parts should not be in big paragraph and the whole description shouldn't be too repetivite-->
             <p>This is one of our client's revenue before and after implementing Solvex's design.</p>
-            <img src="images/revenue_index.png" alt="Client's company growth before and after using solvex" title="Graph display a clear increase in revenue after implementing Solvex's solutions, reflecting the positive impact on business performance." loading="lazy">
+            <img src="../images/revenue_index.png" alt="Client's company growth before and after using solvex" title="Graph display a clear increase in revenue after implementing Solvex's solutions, reflecting the positive impact on business performance." loading="lazy">
             <!--Chatgpt command prompt: can you generate a graph how company bussiness went up before and after using our design-->
         </section>
 
@@ -54,7 +54,7 @@
                 <li><strong>Lifestyle:</strong> We prioritize work-life balance, fostering a motivated and happy team.</li> <!-- part of line 42's prompt -->
                 <li><strong>Culture:</strong> Our workplace is built on trust, innovation, and mutual respect, creating a positive and supportive atmosphere.</li> <!-- part of line 42's prompt -->
             </ul>
-            <img src="images/employee_index.png" alt="Employees' satisfaction" title="Employees' satisfaction image" loading="lazy"> <!-- Image: Chategpt command prompt: Can you create an image based on For employees-->
+            <img src="../images/employee_index.png" alt="Employees' satisfaction" title="Employees' satisfaction image" loading="lazy"> <!-- Image: Chategpt command prompt: Can you create an image based on For employees-->
         </section>
 
         <section id="values">
