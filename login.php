@@ -5,13 +5,14 @@ session_start();
 $manager_username = "manager"; 
 $hashed_password = '$2y$10$kjEPsQtA92cjxt6n60ft7uSvlLyfI3UcALQU4kVEVIN6HiN2q0Gjq'; // password: 12345
 
+//initialize session variables for login attempts and lockout
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
 }
 if (!isset($_SESSION['locked_until'])) {
     $_SESSION['locked_until'] = 0;
 }
-
+// Check if the user is locked out
 if ($_SESSION['login_attempts'] >= 3) {
     if (time() < $_SESSION['locked_until']) {
         header("Location: index.php");
@@ -25,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
+     // Validate input
     if ($username === $manager_username && password_verify($password, $hashed_password)) {
         session_regenerate_id(true);
         $_SESSION['role'] = 'manager';
@@ -32,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: manage.php");
         exit;
     } else {    
+        // Increment login attempts and set error message
         $_SESSION['login_attempts'] += 1;
         $remaining = 3 - $_SESSION['login_attempts'];
         $error = $remaining > 0 ? "Invalid credentials. $remaining attempt(s) left." : "Too many attempts. Redirecting...";
